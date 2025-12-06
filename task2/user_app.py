@@ -5,8 +5,9 @@ import os
 from datetime import datetime
 from dotenv import load_dotenv
 
-load_dotenv(r"C:\Users\mdars\OneDrive\Desktop\Fynd assesment\.env")
-google_api_key=os.getenv("GOOGLE_API_KEY")
+# load_dotenv(r"C:\Users\mdars\OneDrive\Desktop\Fynd assesment\.env")
+# google_api_key=os.getenv("GOOGLE_API_KEY")
+google_api_key=st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=google_api_key)
 model=genai.GenerativeModel("gemini-2.0-flash")
 
