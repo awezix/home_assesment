@@ -2,12 +2,12 @@ import streamlit as st
 import pandas as pd
 import os
 
-
+# creating storage folder if does not exist
 if not os.path.exists("storage"):
     os.makedirs("storage")
 
 DATA_FILE = "storage/data.csv"
-# create csv if missing
+# create csv if does not exist
 if not os.path.exists(DATA_FILE):
     df = pd.DataFrame(columns=["rating", "review", "ai_response", "summary", "actions", "date","time"])
     df.to_csv(DATA_FILE, index=False)
