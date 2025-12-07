@@ -1,0 +1,16 @@
+index,actual_stars,p1_pred,p1_valid,p2_pred,p2_valid,p3_pred,p3_valid
+6252,4,4,True,4,True,4,True
+4684,5,5,True,5,True,5,True
+1731,3,4,True,4,True,4,True
+4742,1,1,True,1,True,1,True
+4521,5,5,True,5,True,-1,False
+6340,4,-1,False,-1,False,-1,False
+576,4,-1,False,-1,False,-1,False
+5202,4,-1,False,-1,False,-1,False
+6363,5,-1,False,-1,False,-1,False
+439,1,-1,False,1,True,2,True
+2750,4,4,True,5,True,4,True
+7487,5,5,True,5,True,5,True
+5272,3,5,True,5,True,5,True
+5653,4,4,True,4,True,4,True
+3999,5,5,True,5,True,-1,False
