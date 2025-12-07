@@ -8,7 +8,7 @@ from datetime import datetime
 # Securely load API Key
 try:
     google_api_key = st.secrets["GOOGLE_API_KEY"]
-    print(google_api_key)
+
 except:
     st.error("Google API Key not found. Please set it in st.secrets.")
     st.stop()
