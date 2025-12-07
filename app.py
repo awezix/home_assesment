@@ -4,8 +4,7 @@ import google.generativeai as genai
 import os
 from datetime import datetime
 
-# --- CONFIGURATION & SETUP ---
-# Securely load API Key
+# load API Key
 try:
     google_api_key = st.secrets["GOOGLE_API_KEY"]
 
@@ -13,11 +12,9 @@ except:
     st.error("Google API Key not found. Please set it in st.secrets.")
     st.stop()
 
-
 genai.configure(api_key=google_api_key)
 model = genai.GenerativeModel("gemini-2.5-flash")
 
-# Ensure storage exists (Global for both views)
 if not os.path.exists("storage"):
     os.makedirs("storage")
 DATA_FILE = "storage/data.csv"
@@ -27,14 +24,12 @@ if not os.path.exists(DATA_FILE):
     df = pd.DataFrame(columns=["rating", "review", "ai_response", "summary", "actions", "date", "time"])
     df.to_csv(DATA_FILE, index=False)
 
-# --- ROUTING LOGIC ---
 # Checks the URL for ?role=admin
 query_params = st.query_params
 role = query_params.get("role", "user")
 
-# ==========================================
-# ADMIN DASHBOARD LOGIC (role=admin)
-# ==========================================
+# ADMIN DASHBOARD (role=admin)
+
 if role == "admin":
     st.set_page_config(page_title="Admin Dashboard", layout="wide")
     st.title("Admin dashboard")
@@ -63,9 +58,9 @@ if role == "admin":
         st.subheader("Rating Distribution")
         st.bar_chart(df["rating"].value_counts().sort_index())
 
-# ==========================================
-# USER DASHBOARD LOGIC (Default view)
-# ==========================================
+
+# USER DASHBOARD default
+
 else:
     st.set_page_config(page_title="User Feedback")
     st.title("User feedback Dashboard")
